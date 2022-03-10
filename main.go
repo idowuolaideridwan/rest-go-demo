@@ -1,11 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"rest-go-demo/controllers"
 	"rest-go-demo/database"
-	"rest-go-demo/entity"
 
 	"github.com/gorilla/mux"
 	_ "github.com/jinzhu/gorm/dialects/mysql" //Required for MySQL dialect
@@ -31,16 +31,17 @@ func initaliseHandlers(router *mux.Router) {
 func initDB() {
 	config :=
 		database.Config{
-			ServerName: "localhost:3306",
-			User:       "root",
-			Password:   "root",
-			DB:         "learning_demo",
+			ServerName: "ls-eab037bb7a56f39111861e2bec9ac27d321bf964.c3bcoovup1j1.eu-west-2.rds.amazonaws.com:3306",
+			User:       "dbmasteruser",
+			Password:   "{w{prh30dk=V(A$N(up[jwNAF1n3%T",
+			DB:         "ewms_db",
 		}
 
+	fmt.Println("Connecting to database...")
 	connectionString := database.GetConnectionString(config)
 	err := database.Connect(connectionString)
 	if err != nil {
 		panic(err.Error())
 	}
-	database.Migrate(&entity.Person{})
+	//database.MigrateTables(&entity.Payment{}, &entity.History{})
 }
