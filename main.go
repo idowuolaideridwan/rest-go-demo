@@ -31,10 +31,10 @@ func initaliseHandlers(router *mux.Router) {
 func initDB() {
 	config :=
 		database.Config{
-			ServerName: "ls-eab037bb7a56f39111861e2bec9ac27d321bf964.c3bcoovup1j1.eu-west-2.rds.amazonaws.com:3306",
-			User:       "dbmasteruser",
-			Password:   "{w{prh30dk=V(A$N(up[jwNAF1n3%T",
-			DB:         "ewms_db",
+			ServerName: "",
+			User:       "",
+			Password:   "",
+			DB:         "",
 		}
 
 	fmt.Println("Connecting to database...")
